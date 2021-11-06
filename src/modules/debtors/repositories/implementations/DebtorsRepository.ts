@@ -32,6 +32,14 @@ class DebtorsRepository implements IDebtorsRepository {
         return debtors;
     }
 
+    async delete(debtor: Debtor): Promise<void> {
+        await this.repository.delete(debtor);
+    }
+
+    async update(debtor: Debtor): Promise<void> {
+        await this.repository.update({id: debtor.id},debtor);
+    }
+
 }
 
 export { DebtorsRepository };

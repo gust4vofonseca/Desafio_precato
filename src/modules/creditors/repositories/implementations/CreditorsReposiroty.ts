@@ -32,6 +32,14 @@ class CreditorsRepository implements ICreditorsRepository {
         return creditors;
     }
 
+    async delete(creditor: Creditor): Promise<void> {
+        await this.repository.delete(creditor);
+    }
+
+    async update(creditor: Creditor): Promise<void> {
+        await this.repository.update({id: creditor.id},creditor);
+    }
+
 }
 
 export { CreditorsRepository };
